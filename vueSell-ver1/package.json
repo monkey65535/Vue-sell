@@ -1,21 +1,18 @@
 {
-  "name": "sell",
+  "name": "sell1.0",
   "version": "1.0.0",
-  "description": "sell app",
-  "author": "ustbhuangyi <280309453@qq.com>",
+  "description": "A Vue.js project",
+  "author": "dilidili <466311467@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "test": "",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
     "vue": "^1.0.21",
-    "vue-router": "^0.7.13",
-    "vue-resource": "^1.0.1",
-    "babel-runtime": "^6.0.0",
-    "better-scroll": "^0.1.7"
+    "babel-runtime": "^6.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
@@ -27,7 +24,6 @@
     "babel-register": "^6.0.0",
     "connect-history-api-fallback": "^1.1.0",
     "css-loader": "^0.23.0",
-    "stylus-loader": "^2.1.1",
     "eslint": "^2.10.2",
     "eslint-friendly-formatter": "^2.0.5",
     "eslint-loader": "^1.3.0",
