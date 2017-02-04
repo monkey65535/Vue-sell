@@ -1,6 +1,6 @@
-# vue_1_sell
+# sell
 
-> A Vue.js project
+> sell app
 
 ## Build Setup
 
