@@ -8,5 +8,10 @@
     export default {};
 </script>
 
-<style>
+<style lang="scss" rel="stylesheet/scss">
+    .header{
+        background: #333;
+        color: #fff;
+        font-size: 26px;
+    }
 </style>
