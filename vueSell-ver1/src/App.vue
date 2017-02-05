@@ -30,7 +30,6 @@ export default {
       respones = respones.body;
       if (respones.error === ErrOk) {
         this.seller = respones.data;
-        console.log(this.seller);
       }
     });
   },

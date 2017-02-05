@@ -1,23 +1,28 @@
  @import "../../common/sass/_mixin.scss";
  .header {
-   background: #999;
    color: #fff;
+   position: relative;
+   background-color:rgba(7,17,27,0.5);
+   overflow: hidden;
+//    商户信息
    .content-warpper {
      padding: 24px 12px 18px 24px;
      font-size: 0;
      position: relative;
+    //  头像
      .avatar {
        display: inline-block;
        font-size: 14px;
        vertical-align: top;
-       img{
-           border-radius: 2px;
+       img {
+         border-radius: 2px;
        }
      }
      .content {
        display: inline-block;
        margin-left: 16px;
        vertical-align: top;
+    //    店铺名称
        .title {
          margin: 2px 0 8px 0;
          .brand {
@@ -37,66 +42,125 @@
            font-weight: bold;
          }
        }
+    //    派送
        .description {
          margin-bottom: 10px;
          line-height: 12px;
          font-size: 12px;
        }
-       .supports{
-           .icon{
-               display: inline-block;
-               width: 12px;
-               height: 12px;
-               margin-right: 4px;
-               background-size: cover;
-               background-repeat: no-repeat;
-               vertical-align: top;
-               &.decrease{
-                   @include bg-img('./imgs/decrease_1');
-               }
-               &.discount{
-                   @include bg-img('./imgs/discount_1');
-               }
-               &.guarantee{
-                   @include bg-img('./imgs/guarantee_1');
-               }
-               &.invoice{
-                   @include bg-img('./imgs/invoice_1');
-               }
-               &.special{
-                   @include bg-img('./imgs/special_1');
-               }
+    //    优惠
+       .supports {
+         .icon {
+           display: inline-block;
+           width: 12px;
+           height: 12px;
+           margin-right: 4px;
+           background-size: cover;
+           background-repeat: no-repeat;
+           vertical-align: top;
+           &.decrease {
+             @include bg-img('./imgs/decrease_1');
            }
-           .text{
-               line-height: 12px;
-               font-size: 10px;
-               vertical-align: top;
+           &.discount {
+             @include bg-img('./imgs/discount_1');
            }
+           &.guarantee {
+             @include bg-img('./imgs/guarantee_1');
+           }
+           &.invoice {
+             @include bg-img('./imgs/invoice_1');
+           }
+           &.special {
+             @include bg-img('./imgs/special_1');
+           }
+         }
+         .text {
+           line-height: 12px;
+           font-size: 10px;
+           vertical-align: top;
+         }
        }
      }
-     .support-content{
-         position: absolute;
-         right: 12px;
-         bottom: 18px;
-         padding: 0 8px;
-         height: 24px;
-         line-height: 24px; 
-         border-radius: 14px;
-         background-color: rgba(0,0,0,0.2);
-         text-align: center;
-         font-size: 0px;
-         span{
-             display: inline-block;
-             color: #fff;
-             vertical-align: middle;
-             font-size: 10px;
-         }
-         i{
-             display: inline-block;
-             color: #fff;
-             vertical-align: middle;
-             font-size: 10px;
-         }
+    //  优惠条数
+     .support-content {
+       position: absolute;
+       right: 12px;
+       bottom: 14px;
+       padding: 0 8px;
+       height: 24px;
+       line-height: 24px;
+       border-radius: 14px;
+       background-color: rgba(0, 0, 0, 0.2);
+       text-align: center;
+       font-size: 0px;
+       span {
+         display: inline-block;
+         color: #fff;
+         vertical-align: middle;
+         font-size: 10px;
+       }
+       i {
+         display: inline-block;
+         color: #fff;
+         vertical-align: middle;
+         font-size: 10px;
+       }
      }
+   }
+//    公告
+   .bulletin-warpper {
+     position: relative;
+     height: 14px;
+     line-height: 14px;
+     padding: 8px 22px 8px 12px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+     background: rgba(7, 17, 27, 0.2);
+     .bulletin-title {
+       display: inline-block;
+       width: 22px;
+       height: 12px;
+       background-size: 22px 12px;
+       @include bg-img('./imgs/bulletin');
+       background-repeat: no-repeat;
+       vertical-align: top;
+       margin-top: 1px;
+     }
+     .bulletin-text {
+       font-size: 10px;
+       color: #fff;
+       vertical-align: top;
+       margin: 0 4px;
+     }
+     i {
+       display: inline-block;
+       color: #fff;
+       vertical-align: middle;
+       font-size: 10px;
+       position: absolute;
+       right: 10px;
+       top: 50%;
+       margin-top: -5px;
+     }
+   }
+//    背景模糊层
+   .background {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     z-index: -1;
+     filter: blur(10px);
+   }
+   .detail{
+       position: fixed;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       overflow: hidden;
+       background: rgba(7, 17, 27, 0.8);
    }
  }
