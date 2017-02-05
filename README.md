@@ -10,7 +10,45 @@
  - balel
  - EsLint
  - webpack@1.0
- - sass
+ - sass  
+
+在build文件夹下的`dev-server.js`中，基于express进行了数据mock  
+```
+var app = express();
+
+// 使用express转发mooc数据
+// 加载data.json
+var appData = require('../data/data.json');
+// 定义各个变量
+var seller = appData.seller;
+var goods = appData.goods;
+var ratings = appData.ratings;
+// 编写路由
+var apiRoutes = express.Router();
+// 定义返回参数
+apiRoutes.get('/seller', function (req, res) {
+  res.json({
+    error: 0,
+    data: seller
+  });
+});
+apiRoutes.get('/goods', function (req, res) {
+  res.json({
+    error: 0,
+    data: goods
+  });
+});
+apiRoutes.get('/ratings', function (req, res) {
+  res.json({
+    error: 0,
+    data: ratings
+  });
+});
+// 定义接口
+app.use('/api', apiRoutes);
+
+// end
+```
 
  ## 遇到的问题  
  默认的EsLint配置是不允许添加分号的，但是我们平时的书写习惯是添加分号，如何配置？  
