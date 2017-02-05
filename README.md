@@ -4,7 +4,7 @@
 目前项目版本：  
 
  - Vue.js@1.2.7
- - Vue-router
+ - Vue-router@0.7.13
  - Vue-resource
  - EcmaScript6
  - balel
