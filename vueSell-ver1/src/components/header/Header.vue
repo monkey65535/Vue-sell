@@ -38,7 +38,22 @@
         </div>
         <!--优惠信息遮罩层-->
         <div class="detail" v-show="detailShow">
-
+            <div class="detail-warpper clearfix">
+                <div class="detail-main">
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                    <p>{{Seller.bulletin}}</p>
+                </div>
+            </div>
+            <!--关闭-->
+            <div class="detail-close" @click="hideDetail">
+                <i class="icon-close"></i>
+            </div>
         </div>
     </div>
 </template>
@@ -61,6 +76,9 @@
         methods: {
             showDetial () {
                 this.detailShow = true;
+            },
+            hideDetail () {
+                this.detailShow = false;
             }
         }
     };

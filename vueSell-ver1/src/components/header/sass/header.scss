@@ -2,14 +2,14 @@
  .header {
    color: #fff;
    position: relative;
-   background-color:rgba(7,17,27,0.5);
+   background-color: rgba(7, 17, 27, 0.5);
    overflow: hidden;
-//    商户信息
+   //    商户信息
    .content-warpper {
      padding: 24px 12px 18px 24px;
      font-size: 0;
      position: relative;
-    //  头像
+     //  头像
      .avatar {
        display: inline-block;
        font-size: 14px;
@@ -22,7 +22,7 @@
        display: inline-block;
        margin-left: 16px;
        vertical-align: top;
-    //    店铺名称
+       //    店铺名称
        .title {
          margin: 2px 0 8px 0;
          .brand {
@@ -42,13 +42,13 @@
            font-weight: bold;
          }
        }
-    //    派送
+       //    派送
        .description {
          margin-bottom: 10px;
          line-height: 12px;
          font-size: 12px;
        }
-    //    优惠
+       //    优惠
        .supports {
          .icon {
            display: inline-block;
@@ -81,7 +81,7 @@
          }
        }
      }
-    //  优惠条数
+     //  优惠条数
      .support-content {
        position: absolute;
        right: 12px;
@@ -107,7 +107,7 @@
        }
      }
    }
-//    公告
+   //    公告
    .bulletin-warpper {
      position: relative;
      height: 14px;
@@ -144,7 +144,7 @@
        margin-top: -5px;
      }
    }
-//    背景模糊层
+   //    背景模糊层
    .background {
      position: absolute;
      top: 0;
@@ -154,13 +154,32 @@
      z-index: -1;
      filter: blur(10px);
    }
-   .detail{
-       position: fixed;
-       top: 0;
-       left: 0;
-       bottom: 0;
-       right: 0;
-       overflow: hidden;
-       background: rgba(7, 17, 27, 0.8);
+   .detail {
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     overflow: auto;
+     background: rgba(7, 17, 27, 0.8);
+   }
+   .detail-warpper {
+     width: 100%;
+     min-height: 100%;
+     .detail-main {
+       margin-top: 64px;
+       padding-bottom: 64px;
+     }
+   }
+   .detail-close {
+     position: relative;
+     width: 32px;
+     height: 32px;
+     margin: -64px auto 0 auto;
+     clear: both;
+     font-size: 32px;
+     i {
+       display: block;
+     }
    }
  }
