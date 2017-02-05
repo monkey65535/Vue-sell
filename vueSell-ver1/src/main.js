@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
-
+import VueResource from 'vue-resource';
 // 引用组件
 import Goods from './components/goods/Goods.vue';
 import Ratings from './components/ratings/Ratings.vue';
@@ -9,6 +9,7 @@ import Sellers from './components/sellers/Sellers.vue';
 
 // 调用vue-router
 Vue.use(VueRouter);
+Vue.use(VueResource);
 // 声明一个根组件
 const app = Vue.extend(App);
 // 创建Vue实例

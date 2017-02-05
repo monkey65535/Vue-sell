@@ -5,7 +5,7 @@
 
  - Vue.js@1.2.7
  - Vue-router@0.7.13
- - Vue-resource
+ - Vue-resource@1.0.1
  - EcmaScript6
  - balel
  - EsLint

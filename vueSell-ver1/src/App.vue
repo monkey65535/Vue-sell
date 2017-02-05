@@ -20,24 +20,36 @@
 import Header from './components/header/Header.vue';
 
 export default {
+  data () {
+    return {
+      seller: {}
+    };
+  },
   components: {
     VHeader: Header
   }
 };
 </script>
 <style lang="scss" rel="stylesheet/scss">
+@import "./common/sass/index.scss";
   .tab {
     display: flex;
     width: 100%;
     height: 40px;
     line-height: 40px;
+    border-bottom: 1px solid rgba(7, 17, 27, 0.1);
     .tab-item {
       flex: 1;
       text-align: center;
       a{
         display: block;
+        font-size: 14px;
+        color: rgb(77, 85, 93);
+        &.v-link-active{
+          color: rgb(240, 20, 20);
+          font-size:14px;
+        }
       }
     }
   }
-
 </style>
