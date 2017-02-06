@@ -169,6 +169,17 @@
      .detail-main {
        margin-top: 64px;
        padding-bottom: 64px;
+       .name {
+         line-height: 16px;
+         text-align: center;
+         font-size: 16px;
+         font-weight: 700;
+       }
+       .star-wapper{
+         margin-top: 18px;
+         padding: 2px 0;
+         text-align: center;
+       }
      }
    }
    .detail-close {

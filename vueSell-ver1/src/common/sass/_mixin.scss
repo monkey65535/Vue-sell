@@ -6,3 +6,11 @@
         background-image: url($url + "@3x.png");
     }
 }
+@mixin square($px){
+    width: $px;
+    height: $px;
+}
+@mixin text-height($px){
+    height: $px;
+    line-height: $px;
+}
