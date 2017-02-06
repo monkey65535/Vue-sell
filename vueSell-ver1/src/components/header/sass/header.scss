@@ -161,7 +161,16 @@
      bottom: 0;
      right: 0;
      overflow: auto;
-     background: rgba(7, 17, 27, 0.8);
+     transition: all .5s;
+     background-filter:blur(10px);
+     &.fade-transition{
+       opacity: 1;
+       background: rgba(7, 17, 27, 0.8);
+     }
+    &.fade-enter, &.fade-leave{
+       opacity: 0;
+       background: rgba(7, 17, 27, 0);
+     }
    }
    .detail-warpper {
      width: 100%;
@@ -175,10 +184,77 @@
          font-size: 16px;
          font-weight: 700;
        }
-       .star-wapper{
+       .star-wapper {
          margin-top: 18px;
          padding: 2px 0;
          text-align: center;
+       }
+       .title {
+         width: 80%;
+         margin: 20px auto 24px auto;
+         display: flex;
+         .line {
+           flex: 1;
+           position: relative;
+           top: -6px;
+           border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+         }
+         .text {
+           padding: 0 12px;
+           font-size: 12px;
+           font-weight: 700;
+         }
+       }
+       .supports {
+         width: 80%;
+         margin: 0 auto;
+         .supports-item {
+           padding: 0 12px;
+           margin-bottom: 12px;
+           font-size: 0;
+           &:last-of-type {
+             margin-bottom: 0;
+           }
+           .icon {
+             display: inline-block;
+             width: 16px;
+             height: 16px;
+             vertical-align: top;
+             margin-right: 6px;
+             background-size: cover;
+             background-repeat: no-repeat;
+             &.decrease {
+               @include bg-img('./imgs/decrease_2');
+             }
+             &.discount {
+               @include bg-img('./imgs/discount_2');
+             }
+             &.guarantee {
+               @include bg-img('./imgs/guarantee_2');
+             }
+             &.invoice {
+               @include bg-img('./imgs/invoice_2');
+             }
+             &.special {
+               @include bg-img('./imgs/special_2');
+             }
+           }
+           .text{
+             line-height: 16px;
+             height: 12px;
+             font-size: 12px;
+           }
+         }
+       }
+       .bulletin{
+         width: 80%;
+         margin: 0 auto;
+         .content{
+           padding: 0 12px;
+           line-height: 24px;
+           font-size: 12px;
+           font-weight: 200;
+         }
        }
      }
    }
