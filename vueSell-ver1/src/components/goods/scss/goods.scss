@@ -17,6 +17,16 @@
         width: 56px;
         line-height: 14px;
         padding: 0 12px;
+        &.current{
+            position: relative;
+            background: #fff;
+            font-weight: 700px;
+            margin-top: -1px;
+            z-index: 10;
+            .text{
+                border:none;
+            }
+        }
         .icon {
           display: inline-block;
           width: 12px;
@@ -84,7 +94,7 @@
                   color: rgb(7,17,27);
               }
               .desc{
-                  line-height: 10px;
+                  line-height: 12px;
                   font-size: 10px;
                   color:rgb(147,153,159);
                   margin-bottom: 8px;
