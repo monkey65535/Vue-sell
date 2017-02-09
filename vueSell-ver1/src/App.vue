@@ -13,7 +13,7 @@
       </div>
     </div>
     <!--路由显示切换区域-->
-    <router-view></router-view>
+    <router-view :seller="seller"></router-view>
   </div>
 </template>
 <script>
