@@ -1,0 +1,46 @@
+@charset 'utf-8';
+@import '../../common/sass/_mixin.scss';
+.cartcontrol {
+  font-size: 0;
+  .cart-add {
+    display: inline-block;
+    padding: 6px;
+    line-height: 24px;
+    font-size: 24px;
+    color: #00a0dc;
+  }
+  .cart-decrease {
+    display: inline-block;
+    padding: 6px;
+    transition: all .4s linear;
+    &.move-transition {
+      opacity: 1 ;
+      transform: translate3d(0, 0, 0);
+    }
+    &.move-enter,
+    &.move-leave {
+      opacity: 0;
+      transform: translate3d(24px, 0, 0);
+      .inner {
+        transform: rotate(180deg);
+      }
+    }
+    .inner {
+      line-height: 24px;
+      font-size: 24px;
+      color: #00a0dc;
+      transition: all 0.4s linear;
+      transform: rotate(0);
+    }
+  }
+  .cart-count {
+    display: inline-block;
+    vertical-align: top;
+    width: 12px;
+    padding-top: 6px;
+    line-height: 24px;
+    text-align: center;
+    font-size: 10px;
+    color: rgb(147, 153, 159);
+  }
+}

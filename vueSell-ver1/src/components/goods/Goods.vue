@@ -1,8 +1,8 @@
 <template>
   <div class="goods-warpper">
-      <!--上层商品列表-->
+    <!--上层商品列表-->
     <div class="goods">
-        <!--左侧菜单-->
+      <!--左侧菜单-->
       <div class="menu-warpper" v-el:menu-warpper>
         <ul>
           <li v-for="item in goods" class="menu-item" :class="{'current':currentIndex === $index}" @click="slectMenu($index,$event)">
@@ -34,6 +34,9 @@
                     <span class="now">￥{{food.price}}</span>
                     <span class="old" v-if="food.oldPrice">{{food.oldPrice}}</span>
                   </div>
+                  <div class="cartcontrol-warpper">
+                    <cartcontrol :food="food"></cartcontrol>
+                  </div>
                 </div>
               </li>
             </ul>
@@ -42,12 +45,13 @@
       </div>
     </div>
     <!--底部购物车组件-->
-    <shopcart :deliver-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+    <shopcart :select-foods="selectFoods" :deliver-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script>
     import BScroll from 'better-scroll';
     import shopcart from '../shopcart/ShopCart.vue';
+    import cartcontrol from '../cartcontrol/cartcontrol.vue';
     const ERR_OK = 0;
     export default {
         data() {
@@ -63,7 +67,8 @@
             }
         },
         components: {
-            shopcart
+            shopcart,
+            cartcontrol
         },
         created() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
@@ -91,14 +96,28 @@
                     }
                 }
                 return 0;
+            },
+            selectFoods() {
+                let foods = [];
+                this.goods.forEach((good) => {
+                    good.foods.forEach((food) => {
+                        if (food.count) {
+                        foods.push(food);
+                        }
+                    });
+                });
+                return foods;
             }
         },
         methods: {
             _initScroll() {
-                this.menuSrcoll = new BScroll(this.$els.menuWarpper, {
+                // 初始化BetterScroll
+                this.meunScroll = new BScroll(this.$els.menuWarpper, {
                     click: true
                 });
+
                 this.foodScroll = new BScroll(this.$els.foodWarpper, {
+                    click: true,
                     probeType: 3
                 });
                 this.foodScroll.on('scroll', (pos) => {
