@@ -10,7 +10,7 @@
  - balel
  - EsLint
  - webpack@1.0
- - sass  
+ - scss  
 
 在build文件夹下的`dev-server.js`中，基于express进行了数据mock  
 ```
@@ -84,5 +84,15 @@ app.use('/api', apiRoutes);
 Vue.set('ObjcteName','key','value');
 Vue.set(this.food,'count',1);
 ``` 
--在Vue中，一般情况下父子组件间的通信是单向数据流，但是我们可以用父组件向子组件传入一个引用类型数据（一般为一个对象）这种黑科技方法实现双向数据流，但是这种方法容易造成数据的混乱，所以不推荐大量使用。如果有需要，请使用`vuex`  
+- 在Vue中，一般情况下父子组件间的通信是单向数据流，但是我们可以用父组件向子组件传入一个引用类型数据（一般为一个对象）这种黑科技方法实现双向数据流，但是这种方法容易造成数据的混乱，所以不推荐大量使用。如果有需要，请使用`vuex`  
+- 在Vue中，访问子组件的方法和访问DOM元素的方法是不同的。访问Dom元素我们会使用`v-el`指令绑定元素，然后使用`this.$els`方法获取这个元素。但是访问组件的时候需要使用`v-ref`指令来绑定组件，然后使用`this.$refs`来获取被绑定的组件
+```
+  // 获取DOM元素
+  <div class="foods-warpper" v-el:food-warpper>
+  // 获取组件元素
+  <shopcart v-ref:shopcart :select-foods="selectFoods" :deliver-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+```
+- 在实现动画效果的时候，可以使用Vue内置的transition钩子来实现一些效果  
+- 在购物车组件中，由于使用插件的时候判断了`event._constructed`,造成了购物车列表中的加减号不能使用。需要在购物车列表中去调用betterScroll来解决  
+
 

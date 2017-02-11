@@ -45,7 +45,7 @@
       </div>
     </div>
     <!--底部购物车组件-->
-    <shopcart :select-foods="selectFoods" :deliver-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
+    <shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
 </template>
 <script>
@@ -81,7 +81,7 @@
                     //    调用betterScroll
                        this._initScroll();
                     //    计算高度
-                    this._calculateHeight();
+                        this._calculateHeight();
                    });
                }
             });
@@ -142,6 +142,17 @@
                 let el = foodList[index];
                 this.foodScroll.scrollToElement(el, 300);
                 console.log(index);
+            },
+            _drop(target) {
+                // 异步执行 dom重绘完成执行动画，优化体验
+                this.$nextTick(() => {
+                    this.$refs.shopcart.drop(target);
+                });
+            }
+        },
+        events: {
+            'cart.add'(target) {
+                this._drop(target);
             }
         }
     };
