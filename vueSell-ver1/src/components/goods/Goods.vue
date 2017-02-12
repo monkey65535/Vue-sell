@@ -19,7 +19,7 @@
           <li v-for="item in goods" class="food-list food-list-hook">
             <h1 class="title">{{item.name}}</h1>
             <ul>
-              <li v-for="food in item.foods" class="food-item">
+              <li @click="selectFood(food,$event)" v-for="food in item.foods" class="food-item">
                 <div class="icon">
                   <img :src="food.icon" alt="" width="57" height="57">
                 </div>
@@ -47,18 +47,21 @@
     <!--底部购物车组件-->
     <shopcart v-ref:shopcart :select-foods="selectFoods" :delivery-price="seller.deliveryPrice" :min-price="seller.minPrice"></shopcart>
   </div>
+  <food :food="selectedFood" v-ref:food></food>
 </template>
 <script>
     import BScroll from 'better-scroll';
     import shopcart from '../shopcart/ShopCart.vue';
     import cartcontrol from '../cartcontrol/cartcontrol.vue';
+    import food from '../food/food.vue';
     const ERR_OK = 0;
     export default {
         data() {
             return {
                 goods: [],
                 listHeight: [],
-                scrollY: 0
+                scrollY: 0,
+                selectedFood: {}
             };
         },
         props: {
@@ -68,7 +71,8 @@
         },
         components: {
             shopcart,
-            cartcontrol
+            cartcontrol,
+            food
         },
         created() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
@@ -141,13 +145,19 @@
                 let foodList = this.$els.foodWarpper.getElementsByClassName('food-list-hook');
                 let el = foodList[index];
                 this.foodScroll.scrollToElement(el, 300);
-                console.log(index);
             },
             _drop(target) {
                 // 异步执行 dom重绘完成执行动画，优化体验
                 this.$nextTick(() => {
                     this.$refs.shopcart.drop(target);
                 });
+            },
+            selectFood(food, event) {
+                if (!event._constructed) {
+                    return false;
+                }
+                this.selectedFood = food;
+                this.$refs.food.show();
             }
         },
         events: {
