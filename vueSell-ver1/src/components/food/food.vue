@@ -23,6 +23,7 @@
       </div>
       <div @click.stop.prevent="addFirst" class="buy" v-show="!food.count || food.count===0" transition="fade">加入购物车</div>
     </div>
+    
 </template>
 <script>
     import Vue from 'vue';
