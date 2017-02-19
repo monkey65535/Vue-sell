@@ -23,12 +23,15 @@
       </div>
       <div @click.stop.prevent="addFirst" class="buy" v-show="!food.count || food.count===0" transition="fade">加入购物车</div>
     </div>
+    <split></split>
     
+  </div>
 </template>
 <script>
     import Vue from 'vue';
     import BScroll from 'better-scroll';
     import cartcontrol from '../cartcontrol/cartcontrol.vue';
+    import split from '../split/split.vue';
     export default {
         props: {
             food: {
@@ -66,7 +69,8 @@
             }
         },
         components: {
-            cartcontrol
+            cartcontrol,
+            split
         }
     };
 </script>
