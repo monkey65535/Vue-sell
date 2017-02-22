@@ -138,5 +138,4 @@
 
 <style lang="scss" rel="stylesheet/scss">
   @import './scss/ratings.scss';
-
 </style>
