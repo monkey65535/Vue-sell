@@ -40,8 +40,8 @@
         flex: 1;
         text-align: center;
         border-right: 1px solid rgba(7, 17, 27, 0.1);
-        &:last-of-type{
-             border: none;
+        &:last-of-type {
+          border: none;
         }
         h2 {
           margin-bottom: 4px;
@@ -57,6 +57,24 @@
         .stress {
           font-size: 24px;
         }
+      }
+    }
+  }
+  .bulletin {
+    padding: 18px 18px 0 18px;
+    .title {
+      margin-bottom: 8px;
+      line-height: 14px;
+      color: rgb(7, 17, 27);
+      font-size: 14px;
+    }
+    .content-warpper {
+      padding: 0 12px 16px 12px;
+      border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+      .content {
+        line-height: 24px;
+        font-size: 12px;
+        color: rgb(240, 20, 20)
       }
     }
   }
