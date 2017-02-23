@@ -1,4 +1,5 @@
 @charset 'uft-8';
+@import '../../../common/sass/_mixin.scss';
 .sellers {
   position: absolute;
   top: 174px;
@@ -75,6 +76,45 @@
         line-height: 24px;
         font-size: 12px;
         color: rgb(240, 20, 20)
+      }
+      .supports {
+        .support-item {
+          padding: 16px 12px;
+          border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+          font-size: 0;
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+        .icon {
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          vertical-align: top;
+          margin-right: 6px;
+          background-size: 16px 16px;
+          background-repeat: no-repeat;
+          &.decrease {
+            @include bg-img('./imgs/decrease_4');
+          }
+          &.discount {
+            @include bg-img('./imgs/discount_4');
+          }
+          &.guarantee {
+            @include bg-img('./imgs/guarantee_4');
+          }
+          &.invoice {
+            @include bg-img('./imgs/invoice_4');
+          }
+          &.special {
+            @include bg-img('./imgs/special_4');
+          }
+        }
+        .text {
+          line-height: 16px;
+          font-size: 12px;
+          color: rgb(7, 17, 27);
+        }
       }
     }
   }

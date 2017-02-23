@@ -35,6 +35,13 @@
         <div class="content-warpper">
           <p class="content">{{seller.bulletin}}</p>
         </div>
+        <!--优惠信息-->
+        <ul v-if="Seller.supports" class="supports">
+          <li class="supports-item" v-for="item in Seller.supports">
+            <span class="icon" :class="classMap[Seller.supports[$index].type]"></span>
+            <span class="text">{{Seller.supports[$index].description}}</span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -52,10 +59,14 @@
         components: {
             star,
             split
+        },
+        created() {
+            this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
         }
     };
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
   @import './scss/seller.scss';
+
 </style>

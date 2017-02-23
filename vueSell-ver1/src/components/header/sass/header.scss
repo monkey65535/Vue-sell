@@ -162,6 +162,7 @@
      right: 0;
      overflow: auto;
      transition: all .5s;
+     z-index: 100;
      backdrop-filter:blur(10px);
      &.fade-transition{
        opacity: 1;
