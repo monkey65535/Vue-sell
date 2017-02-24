@@ -1,5 +1,6 @@
-@charset 'uft-8';
-@import '../../../common/sass/_mixin.scss';
+@charset "utf-8";
+@import "../../../common/sass/mixin";
+
 .sellers {
   position: absolute;
   top: 174px;
@@ -141,6 +142,25 @@
             margin: 0;
           }
         }
+      }
+    }
+  }
+  .info {
+    padding: 18px 18px 0 18px;
+    color: rgb(7, 17, 27);
+    .title {
+      padding-bottom: 12px;
+      line-height: 14px;
+      border-bottom: rgba(7, 17, 27, 0.1);
+      font-size: 14px;
+    }
+    .info-item {
+      padding: 16px 12px;
+      line-height: 16px;
+      border-bottom: rgba(7, 17, 27, 0.1);
+      font-size: 12px;
+      &:last-child {
+        border-bottom:1px solid transparent;
       }
     }
   }

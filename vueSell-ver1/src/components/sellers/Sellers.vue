@@ -1,4 +1,4 @@
-<template>
+<template xmlns:v-el="http://www.w3.org/1999/xhtml">
   <div class="sellers" v-el:seller>
     <div class="seller-content">
       <div class="overview">
@@ -56,6 +56,12 @@
           </div>
       </div>
       <split></split>
+      <div class="info">
+        <h1 class="title">商家信息</h1>
+        <ul>
+          <li class="info-item" v-for="info in seller.infos">{{info}}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -121,5 +127,4 @@
 
 <style lang="scss" rel="stylesheet/scss">
   @import './scss/seller.scss';
-
 </style>
