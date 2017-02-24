@@ -28,6 +28,10 @@
             </div>
           </div>
         </div>
+        <div class="favorite" @click="favouriteChange">
+            <i class="icon-favorite" :class="{'active':favorite}"></i>
+            <span class="text">{{favoriteText}}</span>
+        </div>
       </div>
       <split></split>
       <div class="bulletin">
@@ -38,7 +42,7 @@
         <!--优惠信息-->
         <ul v-if="seller.supports" class="supports">
           <li class="supports-item" v-for="item in seller.supports">
-            <span class="icon" :class="classMap[seller.supports[$index].type]"></span>
+            <i class="icon" :class="classMap[seller.supports[$index].type]"></i>
             <span class="text">{{seller.supports[$index].description}}</span>
           </li>
         </ul>
@@ -80,6 +84,16 @@
             star,
             split
         },
+        data() {
+            return {
+                favorite: false
+            };
+        },
+        computed: {
+            favoriteText() {
+                return this.favorite ? '已收藏' : '未收藏';
+            }
+        },
         created() {
             this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
         },
@@ -120,6 +134,12 @@
                         }
                     });
                 }
+            },
+            favouriteChange(event) {
+                if (!event._constructed) {
+                    return false;
+                }
+                this.favorite = !this.favorite;
             }
         }
     };

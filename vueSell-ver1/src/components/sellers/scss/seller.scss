@@ -1,6 +1,5 @@
 @charset "utf-8";
 @import "../../../common/sass/mixin";
-
 .sellers {
   position: absolute;
   top: 174px;
@@ -59,6 +58,28 @@
         .stress {
           font-size: 24px;
         }
+      }
+    }
+    .favorite {
+      position: absolute;
+      width: 50px;
+      right: 11px;
+      top: 18px;
+      text-align: center;
+      .icon-favorite {
+        display: block;
+        margin-bottom: 4px;
+        line-height: 24px;
+        font-size: 24px;
+        color: #d4d6d9;
+        &.active {
+          color: rgb(240, 20, 20);
+        }
+      }
+      .text {
+        line-height: 10px;
+        font-size: 10px;
+        color: rgb(77, 85, 93);
       }
     }
   }
@@ -160,7 +181,7 @@
       border-bottom: rgba(7, 17, 27, 0.1);
       font-size: 12px;
       &:last-child {
-        border-bottom:1px solid transparent;
+        border-bottom: 1px solid transparent;
       }
     }
   }
