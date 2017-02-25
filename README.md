@@ -105,5 +105,3 @@ Vue.set(this.food,'count',1);
 
 ### 文件打包
 Vue提供了npm run build命令，可以使用webpack打包我们的项目。
-
-
