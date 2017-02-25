@@ -29,8 +29,8 @@
           </div>
         </div>
         <div class="favorite" @click="favouriteChange">
-            <i class="icon-favorite" :class="{'active':favorite}"></i>
-            <span class="text">{{favoriteText}}</span>
+          <i class="icon-favorite" :class="{'active':favorite}"></i>
+          <span class="text">{{favoriteText}}</span>
         </div>
       </div>
       <split></split>
@@ -50,14 +50,14 @@
       <split></split>
       <!--商家实景-->
       <div class="pics">
-          <h1 class="title">商家实景</h1>
-          <div class="pic-warpper" v-el:pic-warpper>
-              <ul class="pic-list" v-el:pic-list>
-                  <li class="pic-item" v-for="pic in seller.pics">
-                      <img :src="pic" width="120" height="90" alt="">
-                  </li>
-              </ul>
-          </div>
+        <h1 class="title">商家实景</h1>
+        <div class="pic-warpper" v-el:pic-warpper>
+          <ul class="pic-list" v-el:pic-list>
+            <li class="pic-item" v-for="pic in seller.pics">
+              <img :src="pic" width="120" height="90" alt="">
+            </li>
+          </ul>
+        </div>
       </div>
       <split></split>
       <div class="info">
@@ -74,6 +74,7 @@
     import star from '../star/Star';
     import split from '../split/split.vue';
     import BScroll from 'better-scroll';
+    import {saveToLocal, loadFromLocal} from '../../common/js/store.js';
     export default {
         props: {
             seller: {
@@ -86,7 +87,9 @@
         },
         data() {
             return {
-                favorite: false
+                favorite: (() => {
+                    return loadFromLocal(this.seller.id, 'favorite', false);
+                })()
             };
         },
         computed: {
@@ -140,6 +143,8 @@
                     return false;
                 }
                 this.favorite = !this.favorite;
+                console.log(this.seller.id);
+                saveToLocal(this.seller.id, 'favorite', this.favorite);
             }
         }
     };
@@ -147,4 +152,5 @@
 
 <style lang="scss" rel="stylesheet/scss">
   @import './scss/seller.scss';
+
 </style>

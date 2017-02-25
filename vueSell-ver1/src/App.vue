@@ -13,23 +13,29 @@
       </div>
     </div>
     <!--路由显示切换区域-->
-    <router-view :seller="seller"></router-view>
+    <router-view :seller="seller" keep-alive></router-view>
   </div>
 </template>
 <script>
   import Header from './components/header/Header.vue';
+  import {urlParse} from './common/js/unit.js';
   const ErrOk = 0;
   export default {
     data () {
       return {
-        seller: {}
+        seller: {
+          id: (() => {
+            let queryParam = urlParse();
+            return queryParam.id;
+          })()
+        }
       };
     },
     created () {
-      this.$http.get('/api/seller').then((respones) => {
+      this.$http.get('/api/seller?id=' + this.seller.id).then((respones) => {
         respones = respones.body;
       if (respones.error === ErrOk) {
-        this.seller = respones.data;
+          this.seller = Object.assign({}, this.seller, respones.data);
       }
     })
       ;

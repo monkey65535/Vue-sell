@@ -98,10 +98,12 @@ Vue.set(this.food,'count',1);
 
 > CSS黑科技: **在页面中，当padding被设置为百分比的时候，这个百分比的值是相对与容器的宽度来实现的**  
 
-在Vue1.X的生命周期中，created只是以为这Vue实例创建完成，而ready意味着DOM已经渲染完成，对应Vue2.0中的mounted  
-Vue中可以调用watch方法来监控Vue实例中挂载的数据的状态。  
-由于我们获取数据是异步的，那么经常会造成在ready的时候并没有拿到数据，所以我们需要在wacth中监控数据的变化而进行操作  
+ - 在Vue1.X的生命周期中，created只是以为这Vue实例创建完成，而ready意味着DOM已经渲染完成，对应Vue2.0中的mounted  
+ - Vue中可以调用watch方法来监控Vue实例中挂载的数据的状态。  
+ - 由于我们获取数据是异步的，那么经常会造成在ready的时候并没有拿到数据，所以我们需要在wacth中监控数据的变化而进行操作  
+ - 在Vue-router中，如果使用路由缓存功能`keep-alive`，那么每次路由切换都会重新进行渲染。当我们在`router-view`上挂在了`keep-alive`方法，就可以把数据缓存到内存中，这样就不会在切换的时候重新渲染了，也不会造成每次切换路由之后被选择的状态丢失的问题了。  
 
-
+### 文件打包
+Vue提供了npm run build命令，可以使用webpack打包我们的项目。
 
 
